@@ -11,13 +11,17 @@ import { Exchange } from './classes/Exchange';
 })
 export class AppComponent {
 
-  exchange: Exchange;
+  public exchanges: any = [
+    {nome : 'Bit Valor'},
+    {nome: 'Bitcoin to You'},
+    {nome: 'Fox Bit'}
+  ];
 
   constructor(private _exchange: ExchangeService) { }
 
-  getAll(): void {
+  /*getAll(): void {
     this._exchange.GetAll()
       .subscribe((data: Exchange) => this.exchange = data,
       error => console.log(error));
-  }
+  }*/
 }

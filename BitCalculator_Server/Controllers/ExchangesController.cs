@@ -17,22 +17,20 @@ namespace BitCalculator_Server.Controllers
 
             List<Exchanges> dados = new List<Exchanges>();
 
-            string apiExterna = "https://api.bitvalor.com/v1/exchanges.json"; 
-
             dados.Add(new Exchanges() {
-                id = "1",
-                name = "FoxBit",
-                valorCompra = 18616.07,
-                valorVenda = 18690.00,
-                montante = 0.12
+                Id = 1,
+                Name = "FoxBit",
+                ValorCompra = 18616.07,
+                ValorVenda = 18690.00,
+                Montante = 0.12
             });
 
             dados.Add(new Exchanges() {
-                id = "2",
+                id = 2,
                 name = "FoxBit",
                 valorCompra = 18616.07,
                 valorVenda = 18690.00,
-                montante = 0.12
+                Montante = 0.12
             });
 
             dados.Add(new Exchanges() {
@@ -40,7 +38,7 @@ namespace BitCalculator_Server.Controllers
                 name = "FoxBit",
                 valorCompra = 18616.07,
                 valorVenda = 18690.00,
-                montante = 0.12
+                Montante = 0.12
             });
 
             dados.Add(new Exchanges() {
@@ -48,7 +46,7 @@ namespace BitCalculator_Server.Controllers
                 name = "FoxBit",
                 valorCompra = 18616.07,
                 valorVenda = 18690.00,
-                montante = 0.12
+                Montante = 0.12
             });
 
             return dados;

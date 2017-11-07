@@ -5,10 +5,10 @@ using System.Web;
 
 namespace BitCalculator_Server.Models {
     public class Exchanges {
-        public string id { get; set; }
-        public string name { get; set; }
-        public double valorVenda { get; set; }
-        public double valorCompra { get; set; }
-        public double montante { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double ValorVenda { get; set; }
+        public double ValorCompra { get; set; }
+        public double Montante { get; set; }
     }
 }
