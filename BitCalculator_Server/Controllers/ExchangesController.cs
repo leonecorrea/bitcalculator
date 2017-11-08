@@ -26,26 +26,26 @@ namespace BitCalculator_Server.Controllers
             });
 
             dados.Add(new Exchanges() {
-                id = 2,
-                name = "FoxBit",
-                valorCompra = 18616.07,
-                valorVenda = 18690.00,
+                Id = 2,
+                Name = "FoxBit",
+                ValorCompra = 18616.07,
+                ValorVenda = 18690.00,
                 Montante = 0.12
             });
 
             dados.Add(new Exchanges() {
-                id = "3",
-                name = "FoxBit",
-                valorCompra = 18616.07,
-                valorVenda = 18690.00,
+                Id = 3,
+                Name = "FoxBit",
+                ValorCompra = 18616.07,
+                ValorVenda = 18690.00,
                 Montante = 0.12
             });
 
             dados.Add(new Exchanges() {
-                id = "4",
-                name = "FoxBit",
-                valorCompra = 18616.07,
-                valorVenda = 18690.00,
+                Id = 4,
+                Name = "FoxBit",
+                ValorCompra = 18616.07,
+                ValorVenda = 18690.00,
                 Montante = 0.12
             });
 

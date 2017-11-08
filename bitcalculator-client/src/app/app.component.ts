@@ -6,22 +6,11 @@ import { Exchange } from './classes/Exchange';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: '<router-outlet></router-outlet>',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 
-  public exchanges: any = [
-    {nome : 'Bit Valor'},
-    {nome: 'Bitcoin to You'},
-    {nome: 'Fox Bit'}
-  ];
+  constructor() { }
 
-  constructor(private _exchange: ExchangeService) { }
-
-  /*getAll(): void {
-    this._exchange.GetAll()
-      .subscribe((data: Exchange) => this.exchange = data,
-      error => console.log(error));
-  }*/
 }
