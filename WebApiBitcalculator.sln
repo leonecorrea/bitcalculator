@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitCalculator_Server", "BitCalculator_Server\BitCalculator_Server.csproj", "{2C70A567-3E30-4AE0-B135-31005049654B}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Angular_Client", "Angular_Client\Angular_Client.njsproj", "{09850E30-4763-4A7A-A8E2-05096F08C350}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api_Server", "Api_Server\Api_Server.csproj", "{2C70A567-3E30-4AE0-B135-31005049654B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09850E30-4763-4A7A-A8E2-05096F08C350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09850E30-4763-4A7A-A8E2-05096F08C350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09850E30-4763-4A7A-A8E2-05096F08C350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09850E30-4763-4A7A-A8E2-05096F08C350}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2C70A567-3E30-4AE0-B135-31005049654B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2C70A567-3E30-4AE0-B135-31005049654B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C70A567-3E30-4AE0-B135-31005049654B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -20,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9A07E7B4-0D8B-489D-8748-67E4C7663675}
+		SolutionGuid = {33E0E880-9977-41CB-A630-3D641C281C34}
 	EndGlobalSection
 EndGlobal

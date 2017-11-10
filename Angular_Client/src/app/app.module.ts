@@ -1,7 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import {
+  FormsModule,
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  ReactiveFormsModule
+} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
@@ -10,7 +16,6 @@ import { ComprasComponent } from './compras/compras.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './layout/header/header.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    HttpClientModule
+    ReactiveFormsModule
   ],
   providers: [ExchangeService],
   bootstrap: [AppComponent]
