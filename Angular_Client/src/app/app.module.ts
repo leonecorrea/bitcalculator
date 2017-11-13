@@ -16,6 +16,8 @@ import { ComprasComponent } from './compras/compras.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { SharedModule } from './shared/shared.module';
+import { CalculatorService } from './calculator/calculator.service';
 
 @NgModule({
   declarations: [
@@ -23,16 +25,17 @@ import { HeaderComponent } from './layout/header/header.component';
     ComprasComponent,
     CalculatorComponent,
     LayoutComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
-  providers: [ExchangeService],
+  providers: [ExchangeService, CalculatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

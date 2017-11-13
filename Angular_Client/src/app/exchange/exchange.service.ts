@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -10,27 +10,22 @@ import { Exchange } from '../classes/Exchange';
 
 @Injectable()
 export class ExchangeService {
-  private _Url = 'http://localhost:37060/api/Exchanges';
+  exchanges: any;
 
-  constructor(private _http: Http) { }
+  private readonly _exchangesUrl = 'https://api.bitvalor.com/v1/exchanges.json';
+  // private _exchangesUrl = 'http://localhost:37060/Exchanges';
 
-  /**O Observable serve para emitir uma notificação toda vez em que houver alteração em seu
-   * item. */
+  constructor(private _http: Http) {}
 
-  GetAll(): Observable<Exchange> {
-    return this._http.get(this._Url)
-            .map((response: Response) => <Exchange>response.json())
-            .do(data => console.log('All: ' + JSON.stringify(data)))
-            .catch(this.handleError);
+  // O Observable serve para emitir uma notificação toda vez em que houver alteração item.
+  public getAllExchanges() {
+    this._http.get(this._exchangesUrl).subscribe(
+      success => {
+        console.log(success.json());
+      },
+      error => {
+        console.log(error.json());
+      }
+    );
   }
-
-/**Na sequência, fazemos a chamada via o método get da classe http e efetuamos o
- * mapeamento, dizendo que a resposta obtida deve ser mapeada para o objeto
- * do tipo Exchange. */
-
-  private handleError(error: Response) {
-    console.error(error);
-    return Observable.throw(error.json().error || 'Server error');
-  }
-
 }
