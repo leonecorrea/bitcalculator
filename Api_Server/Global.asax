@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="BitCalculator_Server.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Api_Server.Global" Language="C#" %>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
 
-namespace BitCalculator_Server
+namespace Api_Server
 {
     public static class WebApiConfig
     {

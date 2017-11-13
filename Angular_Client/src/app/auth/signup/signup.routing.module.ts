@@ -12,6 +12,4 @@ const ROUTER: Routes = [
   exports: [RouterModule]
 })
 
-export class SignupRoutingModule {
-  constructor() {}
-}
+export class SignupRoutingModule {}

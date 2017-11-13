@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BitCalculator_Server.Models {
+namespace Api_Server.Models {
     public class Calculo {
         public string ExchCompra { get; set; }
-        public string ValorCompra { get; set; }
+        public float ValorCompra { get; set; }
         public string ExchVenda { get; set; }
-        public string ValorVenda { get; set; }
-        public string QtdLucro { get; set; }
-        public string PctLucro { get; set; }
-        public string Montante { get; set; }
+        public float ValorVenda { get; set; }
+        public float QtdLucro { get; set; }
+        public float PctLucro { get; set; }
+        public float Montante { get; set; }
     }
 }

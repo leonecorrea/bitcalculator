@@ -8,7 +8,7 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
 
-namespace BitCalculator_Server
+namespace Api_Server
 {
     public class Global : HttpApplication
     {
