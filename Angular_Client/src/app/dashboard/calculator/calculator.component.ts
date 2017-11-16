@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Exchange } from '../classes/Exchange';
+import { Exchange } from '../../classes/Exchange';
 import { Http } from '@angular/http';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { ExchangeService } from '../exchange/exchange.service';
-import { CalculatorService } from './calculator.service';
+import { ExchangeService } from '../../services/exchange.service';
+import { CalculatorService } from '../../services/calculator.service';
 
 @Component({
   selector: 'app-calculator',
@@ -63,7 +63,7 @@ export class CalculatorComponent implements OnInit {
     this.mostra = true;
   }
 
-  public calcularTaxas() {
+  private calcularTaxas() {
     const taxas = this._calcular.calcularTaxas(this.f.value);
     this.mostraResultado();
   }
