@@ -22,9 +22,6 @@ export class ExchangeService {
     this._http.get(this._exchangesUrl).subscribe(
       success => {
         console.log(success.json());
-      },
-      error => {
-        console.log(error.json());
       }
     );
   }

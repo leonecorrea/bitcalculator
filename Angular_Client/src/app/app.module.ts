@@ -17,6 +17,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { CalculatorService } from './services/calculator.service';
 import { FullLayoutComponent } from './layout/full-layout/full-layout.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { FullLayoutComponent } from './layout/full-layout/full-layout.component'
     ReactiveFormsModule,
     SharedModule
   ],
-  providers: [ExchangeService, CalculatorService],
+  providers: [ExchangeService, CalculatorService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

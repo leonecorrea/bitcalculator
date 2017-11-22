@@ -6,10 +6,9 @@ using System.Web.Http;
 
 namespace Api_Server
 {
-    public static class WebApiConfig
-    {
-        public static void Register(HttpConfiguration config)
-        {
+    public static class WebApiConfig {
+        
+        public static void Register(HttpConfiguration config) {
             // Web API configuration and services
             config.EnableCors();
 

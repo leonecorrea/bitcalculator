@@ -1,20 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { Calculo } from '../classes/Calculo';
 
 @Injectable()
 export class CalculatorService {
 
   constructor(private _http: Http) { }
 
-  private _urlCalculoTaxas: any = 'https://httpbin.org/post';
+  private _urlCalculoTaxas: any = 'http://localhost:37060/calculo';
 
-  /**
-   * CalcularMontante
-   */
   public calcularTaxas(formulario) {
-    this._http
-      .post(this._urlCalculoTaxas, JSON.stringify(formulario))
-      .map(res => res)
-      .subscribe(dados => console.log(dados));
+    return this._http
+      .post(this._urlCalculoTaxas, formulario)
+      .toPromise()
+      .then(res => res.json());
+      // .subscribe(success => {
+      //     console.log(success.json());
+      //     const data = success.json();
+      //   }, error => {
+      //     console.log(error.json());
+      //   });
   }
 }

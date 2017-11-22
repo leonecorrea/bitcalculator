@@ -20,6 +20,9 @@ import { SharedModule } from '../shared/shared.module';
 import { CalculatorService } from '../services/calculator.service';
 import { FullLayoutComponent } from '../layout/full-layout/full-layout.component';
 import { HistoricoDeComprasComponent } from './historico-de-compras/historico-de-compras.component';
+import { AuthService } from '../services/auth.service';
+import { AuthGuard } from '../guards/auth.guard';
+import { HistoricoDeComprasService } from '../services/historico-de-compras.service';
 
 @NgModule({
   imports: [
@@ -36,6 +39,6 @@ import { HistoricoDeComprasComponent } from './historico-de-compras/historico-de
     HistoricoDeComprasComponent,
     CalculatorComponent
   ],
-  providers: [ExchangeService, CalculatorService]
+  providers: [ExchangeService, CalculatorService, AuthService, AuthGuard, HistoricoDeComprasService]
 })
 export class DashboardModule { }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+
+import { HistoricoDeComprasService } from '../../services/historico-de-compras.service';
 
 @Component({
   selector: 'app-historico-de-compras',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoricoDeComprasComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private http: Http,
+    private historicoCompras: HistoricoDeComprasService
+  ) { }
 
   ngOnInit() {
+    console.log(this.historicoCompras.getAllCompras());
   }
 
 }

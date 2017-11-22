@@ -5,54 +5,72 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Api_Server.Controllers {
-    public class CalculoController : ApiController
-    {
-        // GET: api/Calculo
-        public IEnumerable<string> Get() {
-            return new string[] { "value1", "value2" };
-        }
 
-        // GET: api/Calculo/5
-        public string Get(int id) {
-            return "value";
-        }
+    [EnableCors("*", "*", "*")]
+    public class CalculoController : ApiController {
 
         // POST: api/Calculo
         public Calculo Post(Calculo calculo) {
 
-            Exchange e = new Exchange();
+            double TPE = 0;
+            double Fee = 0;
+            switch (calculo.OpcaoCompra) {
+                case "FB":
+                    TPE = 1.4;
+                    Fee = 0.0003;
+                    break;
+                case "MB":
+                    TPE = 1.6;
+                    Fee = 0.0002;
+                    break;
+                case "B2U":
+                    TPE = 1.8;
+                    Fee = 0.0007;
+                    break;
+            }
 
-            //Calculo quando Bitcoins Comprados
-            float bitCoinComprado = (1 / calculo.ValorCompra) * calculo.Montante;
+            double TSE = 0;
+            switch (calculo.OpcaoVenda) {
+                case "FB":
+                    TSE = 1.4;
+                    break;
+                case "MB":
+                    TSE = 1.6;
+                    break;
+                case "B2U":
+                    TSE = 1.8;
+                    break;
+            }
 
-            //Taxa de Transferência
-            float bitCoinTransferido = bitCoinComprado - ((bitCoinComprado / 100) * e.TaxaCompra);
+            //Calculando quando bitcoins foram comprados
+            double bitCoinComprado = (1 / calculo.ValorCompra) * calculo.Montante;
 
-            //Ganho Após a Venda
-            float ganhoVenda = calculo.ValorVenda * bitCoinTransferido;
+            //Cobrando Taxa de Transferencia
 
-            //Valor do Ganho após o saque incluindo sua taxa de saque
-            float ganhoPosVenda = ganhoVenda - ((ganhoVenda / 100) * e.TaxaVenda);
+            //Taxa de Fee de acordo com a Exchange
+            bitCoinComprado = bitCoinComprado - Fee;
 
-            //Porcentagem de Lucro
-            float porcentagemDeLucro = 0;
-            porcentagemDeLucro = (ganhoVenda / calculo.Montante) - 1;
+            double bitCoinDepoisDeTransferido = (bitCoinComprado) - ((bitCoinComprado / 100) * TPE);
 
-            //Atribuo ao objeto e as propriedades de quantidade e porcentagem de lucro
-            calculo.QtdLucro = ganhoPosVenda - calculo.Montante;
-            calculo.PctLucro = porcentagemDeLucro * 100;
+            //Calculando ganho após vender o bitcoin
+            double ganhoComVendaDoBitCoin = calculo.ValorVenda * bitCoinDepoisDeTransferido;
+
+            //Calculando valor ganho depois do saque incluindo a taxa de saque
+            double dinheiroGanhoDepoisDaVenda = ganhoComVendaDoBitCoin - ((ganhoComVendaDoBitCoin / 100) * TSE);
+
+            //Calculando Porcentagem de Lucro
+            double porcentagemDeLucro = 0;
+
+            porcentagemDeLucro = (ganhoComVendaDoBitCoin / calculo.Montante) - 1;
+
+            //Atribuo ao objeto as propriedades de quantidade e porcentagem de lucro
+            calculo.QuantidadeLucro = dinheiroGanhoDepoisDaVenda - calculo.Montante;
+            calculo.PorcentagemLucro = porcentagemDeLucro * 100;
 
             return calculo;
-        }
-
-        // PUT: api/Calculo/5
-        public void Put(int id, [FromBody]string value) {
-        }
-
-        // DELETE: api/Calculo/5
-        public void Delete(int id) {
         }
     }
 }
